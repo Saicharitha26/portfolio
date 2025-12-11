@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kumavath Saicharitha — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__brand">Saicharitha</div>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="nav-toggle" class="nav__toggle" aria-label="toggle menu">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="hero">
+    <div class="hero__bg"></div>
+    <div class="container hero__content">
+      <div class="card hero__card">
+        <div class="hero__left">
+          <h1 class="hero__title">Hi — I'm <span>KUMAVATH SAICHARITHA</span></h1>
+          <p class="hero__tag">CSE @ NIT Raipur • AI • Cybersecurity • Full-Stack</p>
+          <p class="hero__desc">
+            I build intelligent systems (LLMs + TF-IDF retrieval), deploy web apps on AWS, and design autonomous agents.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects">View Projects</a>
+            <a class="btn btn--ghost" href="KUMAVATH_SAICHARITHA_RESUME.pdf" target="_blank">Download Resume</a>
+          </div>
+
+          <div class="hero__meta">
+            <span>📞 8341516596</span>
+            <span>✉️ <a href="mailto:saicharithakumavath@gmail.com">saicharithakumavath@gmail.com</a></span>
+          </div>
+        </div>
+
+        <div class="hero__right">
+          <div class="avatar-wrapper">
+            <img src="myphoto.jpg" alt="Saicharitha photo" class="avatar">
+            <div class="avatar__glow"></div>
+          </div>
+        </div>
+      </div> <!-- card -->
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section section--split">
+    <div class="container">
+      <div class="section__left card card--glass reveal">
+        <h2>About Me</h2>
+        <p>
+          CSE undergraduate at NIT Raipur with hands-on experience in AI, cybersecurity, and web development.
+          I built ChatNVD — a TF-IDF + LLM based CVE assistant, and worked on agentic AI for autonomous decision making.
+        </p>
+        <ul class="list">
+          <li>Agentic AI Intern — IIIT Dharwad (May–Jul 2025)</li>
+          <li>Deployed full-stack systems using FastAPI + React on AWS EC2</li>
+          <li>151+ LeetCode problems solved</li>
+        </ul>
+      </div>
+
+      <div class="section__right reveal">
+        <div class="card card--stacked">
+          <h3>Quick Facts</h3>
+          <div class="facts">
+            <div class="fact">
+              <div class="fact__num">2022 - 2026</div>
+              <div class="fact__label">B.Tech (CSE)</div>
+            </div>
+            <div class="fact">
+              <div class="fact__num">151+</div>
+              <div class="fact__label">LeetCode problems</div>
+            </div>
+            <div class="fact">
+              <div class="fact__num">IIIT Dh</div>
+              <div class="fact__label">Agentic AI Intern</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section section--accent">
+    <div class="container">
+      <h2 class="section__title reveal">Projects</h2>
+
+      <div class="grid">
+        <article class="project card reveal">
+          <div class="project__head">
+            <h3>ChatNVD — Cybersecurity Assistant</h3>
+            <p class="muted">TF-IDF retrieval + LLMs • FastAPI • React • AWS</p>
+          </div>
+          <p>
+            Full-stack system for CVE question answering using TF-IDF retrieval and multiple LLMs (GPT-4o mini, LLaMA 3, Gemini 1.5).
+            Includes evaluation pipeline and web UI.
+          </p>
+          <div class="project__links">
+            <a href="https://github.com/Saicharitha26" target="_blank">GitHub</a>
+            <a href="#" class="muted">Demo (if available)</a>
+          </div>
+        </article>
+
+        <article class="project card reveal">
+          <div class="project__head">
+            <h3>Autonomous Intelligence for Complex Tasks</h3>
+            <p class="muted">Agentic AI • Planning • System design</p>
+          </div>
+          <p>
+            Designed architecture for autonomous agents capable of self-correction, environmental feedback, and planning.
+            Use-cases: robotics, intelligent assistants, simulations.
+          </p>
+          <div class="project__links">
+            <a href="https://github.com/Saicharitha26" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <!-- add more projects as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section__title reveal">Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline__item card reveal">
+          <div class="timeline__left">
+            <div class="timeline__date">May — Jul 2025</div>
+            <div class="timeline__role">Agentic AI Intern</div>
+            <div class="timeline__org">IIIT Dharwad</div>
+          </div>
+          <div class="timeline__desc">
+            Built autonomous agent prototypes and a CVE analysis assistant integrating TF-IDF and LLMs. Focus on retrieval, prompt engineering, and evaluation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section--glass">
+    <div class="container">
+      <h2 class="section__title reveal">Skills</h2>
+      <div class="chips reveal">
+        <span>Python</span><span>Machine Learning</span><span>TF-IDF</span><span>React</span>
+        <span>FastAPI</span><span>AWS EC2</span><span>C++</span><span>HTML/CSS</span><span>DSA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section--contact">
+    <div class="container">
+      <div class="contact-card card reveal">
+        <h2>Let's Connect</h2>
+        <p>Looking for internships or full-time opportunities in AI / Security / Web engineering.</p>
+        <div class="contact-grid">
+          <a class="btn btn--primary" href="mailto:saicharithakumavath@gmail.com">Email Me</a>
+          <a class="btn btn--ghost" href="http://www.linkedin.com/in/kumavathsaicharitha" target="_blank">LinkedIn</a>
+          <a class="btn btn--ghost" href="https://github.com/Saicharitha26" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">© 2025 Kumavath Saicharitha • Built with ❤️</div>
+  </footer>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>

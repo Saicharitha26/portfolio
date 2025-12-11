@@ -1,0 +1,162 @@
+:root{
+  --bg:#0f1022;
+  --card:#0f1724;
+  --muted:rgba(255,255,255,0.72);
+  --glass: rgba(255,255,255,0.04);
+  --accent1: #7b61ff; /* purple */
+  --accent2: #00d4ff; /* cyan */
+  --radius: 14px;
+  --container: 1100px;
+  --glass-border: rgba(255,255,255,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background: linear-gradient(180deg,#03020a 0%, #071129 40%, #081126 100%);
+  color:#e8eefc;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* Layout container */
+.container{
+  width: min(96%, var(--container));
+  margin: 0 auto;
+}
+
+/* NAV */
+.nav{
+  position: sticky;
+  top: 12px;
+  z-index: 60;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  justify-content:space-between;
+  padding: 12px 4%;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.nav__brand{font-weight:700; color:var(--accent1); font-size:1.05rem}
+.nav__links{list-style:none; display:flex; gap:18px; align-items:center}
+.nav__links a{color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:8px; transition:all .18s}
+.nav__links a:hover{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04)); color:white; transform:translateY(-3px)}
+.nav__toggle{display:none; background:transparent; color:var(--muted); border: none; font-size:20px}
+
+/* HERO */
+.hero{
+  padding:40px 0 12px;
+  position:relative;
+  overflow:visible;
+}
+
+.hero__bg{
+  position:absolute;
+  top:-120px; left:50%;
+  width:900px; height:520px;
+  transform:translateX(-50%) rotate(12deg);
+  background: linear-gradient(120deg, rgba(123,97,255,0.18), rgba(0,212,255,0.12));
+  filter: blur(48px);
+  border-radius:30%;
+  z-index:0;
+  pointer-events:none;
+}
+
+.hero__content{position:relative; z-index:10}
+.card{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: var(--radius); padding:22px; box-shadow: 0 10px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03)}
+.hero__card{display:flex; gap:28px; align-items:center; padding:28px; border-radius:20px}
+.hero__left{flex:1; min-width:220px}
+.hero__right{width:300px; display:flex; justify-content:center; align-items:center}
+
+/* Avatar */
+.avatar-wrapper{position:relative; width:240px; height:240px; display:flex; align-items:center; justify-content:center}
+.avatar{
+  width:220px; height:220px; border-radius:20px; object-fit:cover;
+  border:6px solid rgba(255,255,255,0.06);
+  box-shadow: 0 20px 40px rgba(123,97,255,0.12), 0 10px 30px rgba(0,212,255,0.06);
+  transform: translateY(0);
+}
+.avatar__glow{
+  position:absolute; inset:auto; width:260px; height:260px; border-radius:26px;
+  background: linear-gradient(135deg, rgba(123,97,255,0.12), rgba(0,212,255,0.08));
+  filter: blur(28px); z-index:-1;
+}
+
+/* Hero text */
+.hero__title{font-size:28px; margin:0 0 6px; color: #fff; font-weight:700}
+.hero__title span{color:var(--accent2)}
+.hero__tag{color:var(--muted); margin-bottom:12px}
+.hero__desc{color:rgba(232,238,252,0.88); margin-bottom:16px}
+
+/* Buttons */
+.btn{display:inline-block; text-decoration:none; padding:10px 16px; border-radius:10px; font-weight:600; transition:all .18s}
+.btn--primary{background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#021028; box-shadow: 0 10px 30px rgba(123,97,255,0.12)}
+.btn--primary:hover{transform:translateY(-4px)}
+.btn--ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04)}
+
+/* Section */
+.section{padding:64px 0}
+.section--split .container{display:grid; grid-template-columns: 1fr 360px; gap:28px; align-items:start}
+.section__title{font-size:22px; margin-bottom:18px; color: #f0f7ff}
+
+/* Card stacked */
+.card--stacked{padding:20px}
+.facts{display:flex; gap:16px; flex-wrap:wrap}
+.fact{background:var(--glass); border-radius:12px; padding:12px; min-width:110px; text-align:center; border:1px solid var(--glass-border)}
+.fact__num{font-weight:700; color:var(--accent2); font-size:18px}
+.fact__label{font-size:13px; color:var(--muted); margin-top:6px}
+
+/* Grid for projects */
+.grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:18px; margin-top:20px}
+.project{padding:18px; border-radius:12px; transition: transform .22s, box-shadow .22s}
+.project:hover{transform:translateY(-8px); box-shadow: 0 30px 60px rgba(2,6,23,0.6)}
+
+/* muted text */
+.muted{color:var(--muted); font-size:14px}
+
+/* Timeline */
+.timeline{margin-top:20px}
+.timeline__item{display:flex; gap:18px; align-items:flex-start; padding:18px; border-radius:12px}
+.timeline__left{min-width:160px}
+.timeline__date{font-weight:700; color:var(--accent1)}
+.timeline__role{font-weight:600; margin-top:6px}
+.timeline__org{font-size:13px; color:var(--muted)}
+
+/* Skills chips */
+.chips{display:flex; gap:10px; flex-wrap:wrap}
+.chips span{background: linear-gradient(90deg,var(--accent1),var(--accent2)); color:#021028; padding:8px 12px; border-radius:999px; font-weight:600}
+
+/* Contact */
+.section--contact .contact-card{display:flex; flex-direction:column; gap:16px; align-items:flex-start}
+.contact-grid{display:flex; gap:12px; flex-wrap:wrap}
+
+/* Footer */
+.footer{padding:28px 0; text-align:center; color:var(--muted)}
+
+/* Reveal animations (JS will add .reveal.show) */
+.reveal{opacity:0; transform: translateY(18px) scale(0.995); transition: all .6s cubic-bezier(.2,.9,.3,1)}
+.reveal.show{opacity:1; transform: none}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero__card{flex-direction:column; padding:18px}
+  .hero__right{width:100%; display:flex; justify-content:center}
+  .nav__links{display:none}
+  .nav__toggle{display:block}
+  .section--split .container{grid-template-columns: 1fr}
+  .grid{grid-template-columns: 1fr}
+}
+
+@media (max-width:480px){
+  .avatar{width:160px;height:160px}
+  .avatar-wrapper{width:180px;height:180px}
+  .hero__title{font-size:20px}
+  .nav{padding:10px}
+}
