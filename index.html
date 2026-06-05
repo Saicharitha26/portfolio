@@ -1,194 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kumavath Saicharitha — Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kumavath Saicharitha | Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f172a;
+      color:white;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 0;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding-top:100px;
+      background:linear-gradient(to right,#0f172a,#1e293b);
+    }
+
+    .hero-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-size:52px;
+      margin-bottom:15px;
+    }
+
+    .hero-text h1 span{
+      color:#38bdf8;
+    }
+
+    .hero-text h3{
+      color:#cbd5e1;
+      margin-bottom:20px;
+      font-weight:400;
+    }
+
+    .hero-text p{
+      margin-bottom:25px;
+      color:#cbd5e1;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 28px;
+      border-radius:8px;
+      margin-right:15px;
+      transition:0.3s;
+      font-weight:600;
+    }
+
+    .btn-primary{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .btn-primary:hover{
+      background:#0ea5e9;
+    }
+
+    .btn-outline{
+      border:2px solid #38bdf8;
+    }
+
+    .btn-outline:hover{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .hero-image{
+      text-align:center;
+    }
+
+    .hero-image img{
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid #38bdf8;
+      box-shadow:0 0 30px rgba(56,189,248,0.5);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:50px;
+      color:#38bdf8;
+    }
+
+    /* ABOUT */
+
+    .about{
+      background:#111827;
+    }
+
+    .about-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .card{
+      background:#1e293b;
+      padding:30px;
+      border-radius:15px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+    }
+
+    .timeline-item{
+      background:#1e293b;
+      padding:25px;
+      border-left:5px solid #38bdf8;
+      border-radius:10px;
+    }
+
+    .timeline-item h3{
+      color:#38bdf8;
+      margin-bottom:8px;
+    }
+
+    .timeline-item span{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      padding:25px;
+      border-radius:15px;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .project-card h3{
+      color:#38bdf8;
+      margin-bottom:15px;
+    }
+
+    .project-links{
+      margin-top:20px;
+    }
+
+    .project-links a{
+      color:#38bdf8;
+      margin-right:15px;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      background:#111827;
+    }
+
+    .skills-container{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      justify-content:center;
+    }
+
+    .skill{
+      background:#1e293b;
+      padding:12px 22px;
+      border-radius:30px;
+      border:1px solid #38bdf8;
+    }
+
+    /* EDUCATION */
+
+    .education-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-bottom:20px;
+      color:#cbd5e1;
+    }
+
+    .contact-links{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      background:#020617;
+      text-align:center;
+      padding:20px;
+      color:#94a3b8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero-content,
+      .about-content{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:40px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero-image img{
+        width:250px;
+        height:250px;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav__brand">Saicharitha</div>
-    <ul class="nav__links" id="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button id="nav-toggle" class="nav__toggle" aria-label="toggle menu">☰</button>
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">Saicharitha</div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- HERO -->
-  <header id="hero" class="hero">
-    <div class="hero__bg"></div>
-    <div class="container hero__content">
-      <div class="card hero__card">
-        <div class="hero__left">
-          <h1 class="hero__title">Hi — I'm <span>KUMAVATH SAICHARITHA</span></h1>
-          <p class="hero__tag">CSE @ NIT Raipur • AI • Cybersecurity • Full-Stack</p>
-          <p class="hero__desc">
-            I build intelligent systems (LLMs + TF-IDF retrieval), deploy web apps on AWS, and design autonomous agents.
-          </p>
 
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#projects">View Projects</a>
-            <a class="btn btn--ghost" href="KUMAVATH_SAICHARITHA_RESUME.pdf" target="_blank">Download Resume</a>
-          </div>
+  <section class="hero" id="home">
 
-          <div class="hero__meta">
-            <span>📞 8341516596</span>
-            <span>✉️ <a href="mailto:saicharithakumavath@gmail.com">saicharithakumavath@gmail.com</a></span>
-          </div>
-        </div>
+    <div class="container hero-content">
 
-        <div class="hero__right">
-          <div class="avatar-wrapper">
-            <img src="myphoto.jpg" alt="Saicharitha photo" class="avatar">
-            <div class="avatar__glow"></div>
-          </div>
-        </div>
-      </div> <!-- card -->
-    </div>
-  </header>
+      <div class="hero-text">
 
-  <!-- ABOUT -->
-  <section id="about" class="section section--split">
-    <div class="container">
-      <div class="section__left card card--glass reveal">
-        <h2>About Me</h2>
+        <h1>Hi, I'm <span>KUMAVATH SAICHARITHA</span></h1>
+
+        <h3>
+          Computer Science Graduate | Cybersecurity | Agentic AI | Embedded Systems
+        </h3>
+
         <p>
-          CSE undergraduate at NIT Raipur with hands-on experience in AI, cybersecurity, and web development.
-          I built ChatNVD — a TF-IDF + LLM based CVE assistant, and worked on agentic AI for autonomous decision making.
+          Passionate about AI-driven Vulnerability Assessment, Autonomous Systems,
+          Embedded Security, and Full-Stack Development. Experienced in working
+          with GPT-4o mini, LLaMA 3, Gemini 1.5 Pro, FastAPI, React, and AWS EC2.
         </p>
-        <ul class="list">
-          <li>Agentic AI Intern — IIIT Dharwad (May–Jul 2025)</li>
-          <li>Deployed full-stack systems using FastAPI + React on AWS EC2</li>
-          <li>151+ LeetCode problems solved</li>
-        </ul>
+
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+
+        <a href="resume.pdf" target="_blank" class="btn btn-outline">
+          Download Resume
+        </a>
+
       </div>
 
-      <div class="section__right reveal">
-        <div class="card card--stacked">
-          <h3>Quick Facts</h3>
-          <div class="facts">
-            <div class="fact">
-              <div class="fact__num">2022 - 2026</div>
-              <div class="fact__label">B.Tech (CSE)</div>
-            </div>
-            <div class="fact">
-              <div class="fact__num">151+</div>
-              <div class="fact__label">LeetCode problems</div>
-            </div>
-            <div class="fact">
-              <div class="fact__num">IIIT Dh</div>
-              <div class="fact__label">Agentic AI Intern</div>
-            </div>
-          </div>
-        </div>
+      <div class="hero-image">
+        <img src="myphoto.jpg" alt="Saicharitha">
       </div>
+
     </div>
+
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section section--accent">
+  <!-- ABOUT -->
+
+  <section id="about" class="about">
+
     <div class="container">
-      <h2 class="section__title reveal">Projects</h2>
 
-      <div class="grid">
-        <article class="project card reveal">
-          <div class="project__head">
-            <h3>ChatNVD — Cybersecurity Assistant</h3>
-            <p class="muted">TF-IDF retrieval + LLMs • FastAPI • React • AWS</p>
-          </div>
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-content">
+
+        <div class="card">
+          <h3>Professional Summary</h3>
+
           <p>
-            Full-stack system for CVE question answering using TF-IDF retrieval and multiple LLMs (GPT-4o mini, LLaMA 3, Gemini 1.5).
-            Includes evaluation pipeline and web UI.
+            Computer Science graduate with experience in Cybersecurity,
+            Embedded Systems, Agentic AI, and AI-driven Vulnerability Assessment.
+            Worked on autonomous firmware analysis, CVE detection, and
+            LLM-based cybersecurity systems using GPT-4o mini,
+            LLaMA 3, and Gemini 1.5 Pro.
           </p>
-          <div class="project__links">
-            <a href="https://github.com/Saicharitha26" target="_blank">GitHub</a>
-            <a href="#" class="muted">Demo (if available)</a>
-          </div>
-        </article>
+        </div>
 
-        <article class="project card reveal">
-          <div class="project__head">
-            <h3>Autonomous Intelligence for Complex Tasks</h3>
-            <p class="muted">Agentic AI • Planning • System design</p>
-          </div>
-          <p>
-            Designed architecture for autonomous agents capable of self-correction, environmental feedback, and planning.
-            Use-cases: robotics, intelligent assistants, simulations.
-          </p>
-          <div class="project__links">
-            <a href="https://github.com/Saicharitha26" target="_blank">GitHub</a>
-          </div>
-        </article>
+        <div class="card">
 
-        <!-- add more projects as needed -->
+          <h3>Technical Expertise</h3>
+
+          <ul>
+            <li>Python, C/C++, JavaScript</li>
+            <li>React JS, HTML, CSS, Bootstrap</li>
+            <li>TF-IDF, NLP, Scikit-learn</li>
+            <li>FastAPI, AWS EC2</li>
+            <li>Cybersecurity & Binary Analysis</li>
+            <li>DSA & OOP</li>
+          </ul>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="section">
+
+  <section id="experience">
+
     <div class="container">
-      <h2 class="section__title reveal">Experience</h2>
+
+      <h2 class="section-title">Experience</h2>
 
       <div class="timeline">
-        <div class="timeline__item card reveal">
-          <div class="timeline__left">
-            <div class="timeline__date">May — Jul 2025</div>
-            <div class="timeline__role">Agentic AI Intern</div>
-            <div class="timeline__org">IIIT Dharwad</div>
-          </div>
-          <div class="timeline__desc">
-            Built autonomous agent prototypes and a CVE analysis assistant integrating TF-IDF and LLMs. Focus on retrieval, prompt engineering, and evaluation.
-          </div>
+
+        <div class="timeline-item">
+
+          <h3>Pre-Doctoral Intern — IISc Bangalore</h3>
+
+          <span>DESE | Jan 2026 – May 2026</span>
+
+          <p>
+            Worked on the FirmwareHive research project focusing on Embedded
+            Systems and Cybersecurity. Developed autonomous firmware analysis
+            workflows using Tree-of-Agents architecture and local LLM integration.
+            Applied binary analysis, CVE detection, and vulnerability tracing.
+          </p>
+
         </div>
+
+        <div class="timeline-item">
+
+          <h3>Agentic AI Intern — IIIT Dharwad</h3>
+
+          <span>May 2025 – June 2025</span>
+
+          <p>
+            Developed autonomous agent architectures and CVE analysis pipelines
+            using Python and TF-IDF embeddings. Integrated GPT-4o mini,
+            LLaMA 3, and Gemini 1.5 Pro for vulnerability assessment and
+            deployed systems using FastAPI, React, and AWS EC2.
+          </p>
+
+        </div>
+
       </div>
+
     </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+
+          <h3>FirmwareHive Research Project</h3>
+
+          <p>
+            Automated firmware security analysis system using Tree-of-Agents.
+            Integrated Ghidra, Radare2, Qwen, and Ollama for AI-assisted
+            vulnerability analysis and CVE detection.
+          </p>
+
+          <div class="project-links">
+            <a href="https://github.com/" target="_blank">GitHub</a>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>Autonomous Intelligence for Complex Tasks</h3>
+
+          <p>
+            Developed Agentic AI architectures for planning, self-correction,
+            adaptive learning, and multi-agent coordination for intelligent systems.
+          </p>
+
+          <div class="project-links">
+            <a href="https://github.com/" target="_blank">GitHub</a>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>ChatNVD - Cybersecurity Assessment with LLMs</h3>
+
+          <p>
+            AI-powered cybersecurity vulnerability assessment system using
+            TF-IDF retrieval and LLMs including GPT-4o mini, Gemini 1.5 Pro,
+            and LLaMA 3 with FastAPI + React deployment.
+          </p>
+
+          <div class="project-links">
+            <a href="https://github.com/" target="_blank">GitHub</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section section--glass">
+
+  <section id="skills" class="skills">
+
     <div class="container">
-      <h2 class="section__title reveal">Skills</h2>
-      <div class="chips reveal">
-        <span>Python</span><span>Machine Learning</span><span>TF-IDF</span><span>React</span>
-        <span>FastAPI</span><span>AWS EC2</span><span>C++</span><span>HTML/CSS</span><span>DSA</span>
+
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-container">
+
+        <div class="skill">Python</div>
+        <div class="skill">C/C++</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React JS</div>
+        <div class="skill">FastAPI</div>
+        <div class="skill">AWS EC2</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">TF-IDF</div>
+        <div class="skill">Cybersecurity</div>
+        <div class="skill">NLP</div>
+        <div class="skill">SQL</div>
+        <div class="skill">DSA</div>
+
       </div>
+
     </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <div class="container">
+
+      <h2 class="section-title">Education</h2>
+
+      <div class="education-grid">
+
+        <div class="card">
+
+          <h3>NIT Raipur</h3>
+
+          <p>
+            B.Tech in Computer Science & Engineering<br>
+            2022 - 2026<br>
+            CPI: 6.76
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Sri Chaitanya Junior College</h3>
+
+          <p>
+            Andhra Pradesh Board of Intermediate Education<br>
+            Percentage: 89.5%
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Sri Chaitanya Techno School</h3>
+
+          <p>
+            Andhra Pradesh Board of Secondary Education<br>
+            Percentage: 100%
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section section--contact">
+
+  <section id="contact" class="contact">
+
     <div class="container">
-      <div class="contact-card card reveal">
-        <h2>Let's Connect</h2>
-        <p>Looking for internships or full-time opportunities in AI / Security / Web engineering.</p>
-        <div class="contact-grid">
-          <a class="btn btn--primary" href="mailto:saicharithakumavath@gmail.com">Email Me</a>
-          <a class="btn btn--ghost" href="http://www.linkedin.com/in/kumavathsaicharitha" target="_blank">LinkedIn</a>
-          <a class="btn btn--ghost" href="https://github.com/Saicharitha26" target="_blank">GitHub</a>
-        </div>
+
+      <h2 class="section-title">Contact Me</h2>
+
+      <p>
+        Interested in AI, Cybersecurity, Embedded Systems,
+        and Software Engineering opportunities.
+      </p>
+
+      <div class="contact-links">
+
+        <a href="mailto:saicharithakumavath@gmail.com" class="btn btn-primary">
+          Email
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" class="btn btn-outline">
+          LinkedIn
+        </a>
+
+        <a href="https://github.com/" target="_blank" class="btn btn-outline">
+          GitHub
+        </a>
+
       </div>
+
     </div>
+
   </section>
 
-  <footer class="footer">
-    <div class="container">© 2025 Kumavath Saicharitha • Built with ❤️</div>
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Kumavath Saicharitha | Portfolio Website
+    </p>
+
   </footer>
 
-  <!-- External JS -->
-  <script src="script.js"></script>
 </body>
 </html>
+
+
+
